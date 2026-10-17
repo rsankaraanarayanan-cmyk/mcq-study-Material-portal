@@ -26,7 +26,6 @@
     <div id="progress" class="progress"></div>
     <div class="bar"><div id="fill" class="fill"></div></div>
     <div id="question" class="question"></div>
-    <div id="origin" class="origin"></div>
     <div id="options"></div>
     <div id="feedback" class="feedback"></div>
     <div class="nav"><button id="previousBtn" class="secondary">Previous</button><button id="nextBtn">Next</button></div>
@@ -69,7 +68,6 @@ function showQuestion() {
   document.getElementById('progress').textContent = `Question ${currentIndex+1} of ${currentBank.length} | Score: ${score}`;
   document.getElementById('fill').style.width = ((currentIndex+1)/currentBank.length*100)+'%';
   document.getElementById('question').textContent = item.q;
-  document.getElementById('origin').textContent = item.source || (selectedUnit === 'unit1' ? 'Previously prepared Unit 1 material' : 'Unit 2 question');
   const options = document.getElementById('options'); options.innerHTML='';
   item.o.forEach((opt,i) => { const b=document.createElement('button'); b.className='option'; b.textContent=String.fromCharCode(65+i)+'. '+opt; b.addEventListener('click',()=>chooseAnswer(i)); options.appendChild(b); });
   const f=document.getElementById('feedback'); f.className='feedback'; f.textContent='';
